@@ -3,6 +3,8 @@ import io.restassured.http.ContentType;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class PokemonTesting {
 
     @Test
@@ -15,6 +17,12 @@ public class PokemonTesting {
                 assertThat().
                 contentType(ContentType.JSON);
 
+    }
+    @Test
+    public void  http_Service_work() throws IOException {
+        HttpService httpService = new HttpService();
+
+    Assert.assertTrue(httpService.connect("https://pokeapi.co/api/v2/type/fire").startsWith("{"));
     }
 
     @Test
