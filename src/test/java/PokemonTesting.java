@@ -1,0 +1,28 @@
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PokemonTesting {
+
+    @Test
+    public void test_ResponseHeaderData_ShouldBeCorrect() {
+
+        RestAssured.given().
+                when().
+                get("https://pokeapi.co/api/v2/type/fire").
+                then().
+                assertThat().
+                contentType(ContentType.JSON);
+
+    }
+
+    @Test
+    public void check_Connection(){
+         MainApp mainApp = new MainApp();
+        Pokemon pokemon = mainApp.connectByPokemonType("fire");
+
+        Assert.assertEquals(mainApp.countDamage("grass",pokemon),2,0);
+
+    }
+}
