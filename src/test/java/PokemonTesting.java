@@ -18,7 +18,15 @@ public class PokemonTesting {
     }
 
     @Test
-    public void check_Connection(){
+    public void  check_Pokemon_Connection(){
+        MainApp mainApp = new MainApp();
+        Pokemon pokemon = mainApp.connectByPokemonType("fire");
+
+        Assert.assertFalse(pokemon.doubleDamageTo.isEmpty());
+    }
+
+    @Test
+    public void check_count_DMG(){
          MainApp mainApp = new MainApp();
         Pokemon pokemon = mainApp.connectByPokemonType("fire");
 
